@@ -1,527 +1,148 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F1F3"
-    >
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_regular"
-        android:text="Notes"
-        android:textColor="#1A1919"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        android:translationX="-15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="94dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5 notes"
-        android:textColor="#211E1E"
-        android:translationX="-15dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="143dp" />
+    tools:context=".NotesActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="37dp"
         android:layout_height="37dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.783"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/search_icon"
-        tools:layout_editor_absoluteY="33dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Search"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search_icon" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="37dp"
         android:layout_height="37dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="More Options"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:srcCompat="@drawable/more_vert"
-        tools:layout_editor_absoluteY="33dp"
-        tools:ignore="MissingConstraints" />
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="37dp"
-        android:layout_height="37dp"
-        android:background="@drawable/all"
-        android:translationX="-15dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/more_vert" />
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Notes"
+        android:textColor="#1A1919"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="DuplicateIds,MissingConstraints,NotSibling">
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <TextView
-            android:layout_width="37dp"
-            android:layout_height="20dp"
-            android:textAlignment="center"
+    <!-- Số notes -->
+    <TextView
+        android:id="@+id/tvNoteCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="5 notes"
+        android:textColor="#211E1E"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="8dp"
-            tools:text="All" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="365dp"
-        android:layout_height="480dp"
+    <!-- Scroll chứa nội dung -->
+    <ScrollView
+        android:id="@+id/scrollArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/notes_background"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="208dp">
+        app:layout_constraintTop_toBottomOf="@id/tvNoteCount">
+
+        <LinearLayout
+            android:id="@+id/noteList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Note mẫu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notes#1"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Just now Lorem Ipsum is simply dummy text of the printing..."
+                    android:textColor="#B0B3B9"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#B0B3B9" />
+            </LinearLayout>
+
+            <!-- TODO: Nhân bản layout trên nếu muốn có nhiều note -->
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom navigation -->
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="74dp"
-            android:layout_height="37dp"
-            android:background="@drawable/school"
-            tools:ignore="DuplicateIds,MissingConstraints,NotSibling"
-            tools:layout_editor_absoluteX="77dp"
-            tools:layout_editor_absoluteY="162dp">
-
-
-            <TextView
-                android:layout_width="74dp"
-                android:layout_height="20dp"
-                android:textAlignment="center"
-
-                android:textColor="#000000"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="8dp"
-                tools:text="School" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <FrameLayout
-            android:id="@+id/nav_host_fragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Just now Lorem Ipsum is simply dummy text of the printi..."
-        android:textColor="#B0B3B9"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="5dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes#1"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="5dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
-
-    <View
-        android:layout_width="365dp"
-        android:layout_height="1dp"
-        android:background="#B0B3B9"
-        android:translationX="22dp"
-        android:translationY="-200dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Just now Lorem Ipsum is simply dummy text of the printi..."
-        android:textColor="#B0B3B9"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="70dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes#2"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="65dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
-
-    <View
-        android:layout_width="365dp"
-        android:layout_height="1dp"
-        android:background="#B0B3B9"
-        android:translationX="22dp"
-        android:translationY="-140dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="74dp"
-        android:layout_height="37dp"
-        android:background="@drawable/school"
-        android:translationX="-12dp"
-        tools:ignore="DuplicateIds,MissingConstraints,NotSibling"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="162dp">
-
-
-        <TextView
-            android:layout_width="74dp"
-            android:layout_height="20dp"
-            android:textAlignment="center"
-
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="8dp"
-            tools:text="School" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="74dp"
-        android:layout_height="37dp"
-        android:background="@drawable/school"
-        android:translationX="-10dp"
-        tools:ignore="DuplicateIds,MissingConstraints,NotSibling"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="162dp">
-
-
-        <TextView
-            android:layout_width="74dp"
-            android:layout_height="20dp"
-            android:textAlignment="center"
-
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="9dp"
-            tools:text="Work" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="140dp"
-        android:layout_height="37dp"
-        android:background="@drawable/school"
-        android:translationX="-5dp"
-        tools:ignore="DuplicateIds,MissingConstraints,NotSibling"
-        tools:layout_editor_absoluteX="237dp"
-        tools:layout_editor_absoluteY="162dp">
-
-
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="20dp"
-            android:textAlignment="center"
-
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="9dp"
-            tools:text="Recently deleted" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Just now Lorem Ipsum is simply dummy text of the printi..."
-        android:textColor="#B0B3B9"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="130dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:ignore="DuplicateIds" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes#3"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="125dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:ignore="DuplicateIds" />
-
-    <View
-        android:layout_width="365dp"
-        android:layout_height="1dp"
-        android:background="#B0B3B9"
-        android:translationX="22dp"
-        android:translationY="-80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Just now Lorem Ipsum is simply dummy text of the printi..."
-        android:textColor="#B0B3B9"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="190dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:ignore="DuplicateIds" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes#4"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="185dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:ignore="DuplicateIds" />
-
-    <View
-        android:layout_width="365dp"
-        android:layout_height="1dp"
-        android:background="#B0B3B9"
-        android:translationX="22dp"
-        android:translationY="-20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Just now Lorem Ipsum is simply dummy text of the printi..."
-        android:textColor="#B0B3B9"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="250dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:ignore="DuplicateIds" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes#5"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="245dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:ignore="DuplicateIds" />
-
-    <View
-        android:layout_width="365dp"
-        android:layout_height="1dp"
-        android:background="#B0B3B9"
-        android:translationX="22dp"
-        android:translationY="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Just now Lorem Ipsum is simply dummy text of the printi..."
-        android:textColor="#B0B3B9"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="310dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:ignore="DuplicateIds" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes#6"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="305dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:ignore="DuplicateIds" />
-
-    <View
-        android:layout_width="365dp"
-        android:layout_height="1dp"
-        android:background="#B0B3B9"
-        android:translationX="22dp"
-        android:translationY="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Just now Lorem Ipsum is simply dummy text of the printi..."
-        android:textColor="#B0B3B9"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="370dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:ignore="DuplicateIds" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes#7"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="365dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:ignore="DuplicateIds" />
-
-    <View
-        android:layout_width="365dp"
-        android:layout_height="1dp"
-        android:background="#B0B3B9"
-        android:translationX="22dp"
-        android:translationY="160dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Just now Lorem Ipsum is simply dummy text of the printi..."
-        android:textColor="#B0B3B9"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="430dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:ignore="DuplicateIds" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes#8"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:translationX="10dp"
-        android:translationY="425dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:ignore="DuplicateIds" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="68dp"
-        android:layout_height="68dp"
+    <ImageView
+        android:id="@+id/big_plus"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/circle"
-        tools:ignore="DuplicateIds,MissingConstraints,NotSibling"
-        tools:layout_editor_absoluteX="305dp"
-        tools:layout_editor_absoluteY="701dp">
+        android:clickable="true"
+        android:contentDescription="Add"
+        android:focusable="true"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/plus"
 
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            app:srcCompat="@drawable/plus"
-            tools:layout_editor_absoluteX="7dp"
-            tools:layout_editor_absoluteY="7dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollArea"
+        app:layout_constraintVertical_bias="0.461" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
