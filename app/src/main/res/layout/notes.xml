@@ -35,6 +35,7 @@
         android:layout_marginStart="16dp"
         android:text="Notes"
         android:textColor="#1A1919"
+        android:fontFamily="@font/inter_regular"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,27 +47,97 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/inter_regular"
         android:text="5 notes"
         android:textColor="#211E1E"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/toggleButton"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <!-- Scroll chứa nội dung -->
+
+    <!-- Bottom navigation -->
+
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/all"
+        android:fontFamily="@font/inter_regular"
+        android:textOff="All"
+        android:textOn="All"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/scrollArea"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ToggleButton
+        android:id="@+id/toggleButton5"
+        android:layout_width="74dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/school"
+        android:fontFamily="@font/inter_regular"
+        android:textColor="@color/black"
+        android:textOff="School"
+        android:textOn="School"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollArea"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton6"
+        android:layout_width="74dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/school"
+        android:fontFamily="@font/inter_regular"
+        android:textOff="Work"
+        android:textOn="Work"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/scrollArea"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton5"
+        app:layout_constraintTop_toBottomOf="@+id/tvNoteCount"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="148dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/school"
+        android:textOff="Recently Deleted"
+        android:textOn="Recently Deleted"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/scrollArea"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton6" />
+
     <ScrollView
         android:id="@+id/scrollArea"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/notes_background"
-        android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNoteCount">
+        android:layout_marginBottom="80dp"
+    android:background="@drawable/notes_background"
+    android:fontFamily="@font/inter_regular"
+    android:padding="16dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tvNoteCount">
 
         <LinearLayout
             android:id="@+id/noteList"
@@ -74,7 +145,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Note mẫu -->
+
+        <!-- Note mẫu -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -84,6 +156,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
                     android:text="Notes#1"
                     android:textColor="#000000"
                     android:textSize="18sp"
@@ -93,6 +166,157 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Just now Lorem Ipsum is simply dummy text of the printing..."
+                    android:textColor="#B0B3B9"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#B0B3B9" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Notes#1"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Just now Lorem Ipsum is simply dummy text of the printing..."
+                    android:textColor="#B0B3B9"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#B0B3B9" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Notes#1"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Just now Lorem Ipsum is simply dummy text of the printing..."
+                    android:textColor="#B0B3B9"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#B0B3B9" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Notes#1"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Just now Lorem Ipsum is simply dummy text of the printing..."
+                    android:textColor="#B0B3B9"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#B0B3B9" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Notes#1"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Just now Lorem Ipsum is simply dummy text of the printing..."
+                    android:textColor="#B0B3B9"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#B0B3B9" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Notes#1"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_regular"
                     android:text="Just now Lorem Ipsum is simply dummy text of the printing..."
                     android:textColor="#B0B3B9"
                     android:textSize="12sp" />
@@ -104,20 +328,16 @@
                     android:background="#B0B3B9" />
             </LinearLayout>
 
+
             <!-- TODO: Nhân bản layout trên nếu muốn có nhiều note -->
         </LinearLayout>
     </ScrollView>
-
-    <!-- Bottom navigation -->
-
 
     <ImageView
         android:id="@+id/big_plus"
         android:layout_width="58dp"
         android:layout_height="58dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/circle"
         android:clickable="true"
         android:contentDescription="Add"
@@ -125,24 +345,9 @@
         android:padding="8dp"
         android:scaleType="centerInside"
         android:src="@drawable/plus"
-
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollArea"
-        app:layout_constraintVertical_bias="0.461" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black" />
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
