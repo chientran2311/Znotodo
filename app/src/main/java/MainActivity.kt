@@ -1,6 +1,9 @@
 package com.example.znotodo
 
 import android.os.Bundle
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.znotodo.fragment.*
@@ -36,4 +39,9 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
+
+    fun setBottomNavVisibility(visible: Boolean) {
+        bottomNav.visibility = if (visible) View.VISIBLE else View.GONE
+    }
+
 }

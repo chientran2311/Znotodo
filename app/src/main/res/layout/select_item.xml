@@ -1,0 +1,462 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F1F3"
+    tools:context=".MainActivity">
+
+    <!-- Tiêu đề -->
+
+    <!-- Số notes -->
+
+
+    <!-- Scroll chứa nội dung -->
+
+    <!-- Bottom navigation -->
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="Select Items"
+        android:textColor="#1A1919"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cancel" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/all"
+        android:fontFamily="@font/inter_regular"
+        android:textOff="All"
+        android:textOn="All"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/scrollArea"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ToggleButton
+        android:id="@+id/toggleButton5"
+        android:layout_width="74dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/school"
+        android:fontFamily="@font/inter_regular"
+        android:textColor="@color/black"
+        android:textOff="School"
+        android:textOn="School"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollArea"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton6"
+        android:layout_width="74dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/school"
+        android:fontFamily="@font/inter_regular"
+        android:textOff="Work"
+        android:textOn="Work"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/scrollArea"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton5" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="148dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/school"
+        android:textOff="Recently Deleted"
+        android:textOn="Recently Deleted"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/scrollArea"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton6" />
+
+    <ScrollView
+        android:id="@+id/scrollArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/notes_background"
+        android:fontFamily="@font/inter_regular"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/big_plus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+        <LinearLayout
+            android:id="@+id/noteList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!-- Note mẫu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <!-- Cụm tiêu đề + mô tả -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Note#1"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Just now Lorem Ipsum is simply dummy text of the ..."
+                        android:textColor="#B0B3B9"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- CheckBox bên phải -->
+                <CheckBox
+                    android:id="@+id/checkComplete1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    tools:ignore="DuplicateIds" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#B0B3B9" />
+            <!-- Note mẫu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <!-- Cụm tiêu đề + mô tả -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Note#1"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Just now Lorem Ipsum is simply dummy text of the ..."
+                        android:textColor="#B0B3B9"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- CheckBox bên phải -->
+                <CheckBox
+                    android:id="@+id/checkComplete2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#B0B3B9" />
+            <!-- Note mẫu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <!-- Cụm tiêu đề + mô tả -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Note#1"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Just now Lorem Ipsum is simply dummy text of the ..."
+                        android:textColor="#B0B3B9"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- CheckBox bên phải -->
+                <CheckBox
+                    android:id="@+id/checkComplete3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#B0B3B9" />
+            <!-- Note mẫu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <!-- Cụm tiêu đề + mô tả -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Note#1"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Just now Lorem Ipsum is simply dummy text of the ..."
+                        android:textColor="#B0B3B9"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- CheckBox bên phải -->
+                <CheckBox
+                    android:id="@+id/checkComplete4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#B0B3B9" />
+            <!-- Note mẫu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <!-- Cụm tiêu đề + mô tả -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Note#1"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Just now Lorem Ipsum is simply dummy text of the ..."
+                        android:textColor="#B0B3B9"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- CheckBox bên phải -->
+                <CheckBox
+                    android:id="@+id/checkComplete5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#B0B3B9" />
+            <!-- Note mẫu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <!-- Cụm tiêu đề + mô tả -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Note#1"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Just now Lorem Ipsum is simply dummy text of the ..."
+                        android:textColor="#B0B3B9"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- CheckBox bên phải -->
+                <CheckBox
+                    android:id="@+id/checkComplete6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#B0B3B9" />
+
+            <!-- TODO: Nhân bản layout trên nếu muốn có nhiều note -->
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/big_plus"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/circle"
+        android:clickable="true"
+        android:contentDescription="Add"
+        android:focusable="true"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/plus"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="Cancel"
+        android:textColor="@color/yellow_dark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="10dp"
+        android:text="Select All"
+        android:textColor="@color/yellow_dark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toEndOf="@+id/textView_cancel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu_select" />
+</androidx.constraintlayout.widget.ConstraintLayout>

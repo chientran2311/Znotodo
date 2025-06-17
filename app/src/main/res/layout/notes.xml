@@ -82,7 +82,7 @@
         android:id="@+id/toggleButton5"
         android:layout_width="74dp"
         android:layout_height="38dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="2dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/school"
         android:fontFamily="@font/inter_regular"
@@ -97,7 +97,7 @@
         android:id="@+id/toggleButton6"
         android:layout_width="74dp"
         android:layout_height="38dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/school"
@@ -114,13 +114,15 @@
         android:id="@+id/toggleButton2"
         android:layout_width="148dp"
         android:layout_height="38dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/school"
         android:textOff="Recently Deleted"
         android:textOn="Recently Deleted"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/scrollArea"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/toggleButton6" />
 
     <ScrollView
@@ -154,6 +156,7 @@
                 android:paddingBottom="16dp">
 
                 <TextView
+                    android:id="@+id/noteTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_regular"
@@ -162,7 +165,9 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
+                <!-- Đây là Content -->
                 <TextView
+                    android:id="@+id/noteContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
