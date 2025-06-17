@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Nền oval vàng -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#B08B29" />
+            <stroke android:width="4dp" android:color="#B08B29"/>
+        </shape>
+    </item>
+
+    <!-- Dấu tick ở giữa -->
+    <item
+        android:drawable="@drawable/ic_check_white"
+        android:gravity="center" />
+</layer-list>

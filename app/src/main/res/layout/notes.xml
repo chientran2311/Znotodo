@@ -133,13 +133,13 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="80dp"
-    android:background="@drawable/notes_background"
-    android:fontFamily="@font/inter_regular"
-    android:padding="16dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/tvNoteCount">
+        android:background="@drawable/notes_background"
+        android:fontFamily="@font/inter_regular"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNoteCount">
 
         <LinearLayout
             android:id="@+id/noteList"
@@ -148,7 +148,7 @@
             android:orientation="vertical">
 
 
-        <!-- Note mẫu -->
+            <!-- Note mẫu -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
