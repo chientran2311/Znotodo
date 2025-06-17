@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_popup_rounded"
+    android:padding="12dp"
+    android:divider="@drawable/divider_line"
+    android:showDividers="middle">
+
+    <TextView android:id="@+id/month_1" style="@style/PopupMonthItem" android:text="January" />
+    <TextView android:id="@+id/month_2" style="@style/PopupMonthItem" android:text="February" />
+    <TextView android:id="@+id/month_3" style="@style/PopupMonthItem" android:text="March" />
+    <TextView android:id="@+id/month_4" style="@style/PopupMonthItem" android:text="April" />
+    <TextView android:id="@+id/month_5" style="@style/PopupMonthItem" android:text="May" />
+    <TextView android:id="@+id/month_6" style="@style/PopupMonthItem" android:text="June" />
+    <TextView android:id="@+id/month_7" style="@style/PopupMonthItem" android:text="July" />
+    <TextView android:id="@+id/month_8" style="@style/PopupMonthItem" android:text="August" />
+    <TextView android:id="@+id/month_9" style="@style/PopupMonthItem" android:text="September" />
+    <TextView android:id="@+id/month_10" style="@style/PopupMonthItem" android:text="October" />
+    <TextView android:id="@+id/month_11" style="@style/PopupMonthItem" android:text="November" />
+    <TextView android:id="@+id/month_12" style="@style/PopupMonthItem" android:text="December" />
+
+</LinearLayout>
