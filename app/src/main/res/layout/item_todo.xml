@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:layout_margin="12dp">
+    android:layout_margin="5dp">
 
     <!-- Background with Edit and Delete - Gradient Colors -->
     <FrameLayout
@@ -45,7 +45,7 @@
         android:id="@+id/foreground"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginBottom="8dp"
+
         android:elevation="8dp"
         app:cardCornerRadius="12dp"
         app:cardBackgroundColor="#FFFFFF"

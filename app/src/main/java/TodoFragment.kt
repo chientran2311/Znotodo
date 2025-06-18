@@ -2,6 +2,7 @@ package com.example.znotodo.fragment
 
 import TodoMultiEditFragment
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.TextView
@@ -29,7 +30,8 @@ class TodoFragment : Fragment(R.layout.todo_edit) {
 
         val menuButton = view.findViewById<View>(R.id.menuButton)
         menuButton.setOnClickListener { anchor ->
-            val popup = PopupMenu(requireContext(), anchor)
+            val popup = PopupMenu(requireContext(), anchor, Gravity.END, 0, R.style.PopupMenuStyle)
+
             popup.menuInflater.inflate(R.menu.todo_menu, popup.menu)
 
             popup.setOnMenuItemClickListener { item ->

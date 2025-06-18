@@ -21,16 +21,22 @@
             android:layout_centerVertical="true"
             android:clickable="true"
             android:padding="8dp"
-            android:text="Cancel" />
+            android:text="Cancel"
+            android:textColor="@color/orange_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
-            android:padding="8dp"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:text="Save"
+            android:textColor="@color/orange_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
