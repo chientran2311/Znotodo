@@ -44,4 +44,5 @@ class MainActivity : AppCompatActivity() {
         bottomNav.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
+
 }

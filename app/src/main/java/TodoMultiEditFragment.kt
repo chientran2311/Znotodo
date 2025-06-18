@@ -11,7 +11,7 @@ import com.google.android.material.button.MaterialButton
 class TodoMultiEditFragment : Fragment(R.layout.todo_edit_multi) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as? MainActivity)?.setBottomNavVisible(false)
+        (activity as? MainActivity)?.setBottomNavVisibility(false)
 
         val cancelButton = view.findViewById<TextView>(R.id.cancelBtn)
         cancelButton.setOnClickListener {
@@ -33,8 +33,9 @@ class TodoMultiEditFragment : Fragment(R.layout.todo_edit_multi) {
 
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
-        (activity as? MainActivity)?.setBottomNavVisible(true)
+        (activity as? MainActivity)?.setBottomNavVisibility(true)
     }
 }
